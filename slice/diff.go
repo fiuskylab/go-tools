@@ -2,9 +2,7 @@ package slice
 
 // Diff receives two slices of type T, and returns a
 // slice with all elements not in common between them.
-func Diff[T comparable](slice1, slice2 []T) []T {
-	diff := []T{}
-
+func Diff[T comparable](slice1, slice2 []T) (diff []T) {
 	m := make(map[T]struct{}, len(slice1))
 
 	for _, i := range slice1 {
@@ -23,5 +21,5 @@ func Diff[T comparable](slice1, slice2 []T) []T {
 		diff = append(diff, k)
 	}
 
-	return diff
+	return
 }
